@@ -1,0 +1,8 @@
+pgadmin
+    dev@email.com
+    dev
+
+postgresServer
+    postgres
+    admin
+    
