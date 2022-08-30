@@ -1,9 +1,10 @@
 using Domain.Entities;
 
-namespace Domain.Ports 
+namespace Domain.Ports
 {
-    internal interface IGuestRepository {
+    public interface IGuestRepository
+    {
         Task<Guest> Get(int Id);
-        Task<int> Save(Guest guest);
+        Task<int> Create(Guest guest);
     }
 }
