@@ -16,12 +16,13 @@ namespace Domain.Entities
         {
             if (
                 DocumentId == null ||
+                string.IsNullOrEmpty(DocumentId.IdNumber) ||
                 DocumentId.IdNumber.Length <= 3 ||
                 DocumentId.DocumentType == 0
             )
                 throw new InvalidPersonDocumentException();
 
-            if (string.IsNullOrEmpty(Name))
+            if (string.IsNullOrEmpty(Name) || string.IsNullOrEmpty(Surname) || string.IsNullOrEmpty(Email))
                 throw new MissingRequiredInformationException();
 
             if (!Utils.ValidateEmail(Email))

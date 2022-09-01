@@ -5,7 +5,6 @@ namespace Domain
         public static bool ValidateEmail(string email)
         {
             if (
-                string.IsNullOrEmpty(email) ||
                 !email.Contains("@") ||
                 !email.Contains(".")
             )
