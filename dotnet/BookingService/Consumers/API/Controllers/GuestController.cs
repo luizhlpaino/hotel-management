@@ -35,7 +35,7 @@ namespace API.Controllers
 
             switch (res.ErrorCode)
             {
-                case ErrorCodes.NOT_FOUND: return BadRequest(res);
+                case ErrorCodes.NOT_FOUND: return NotFound(res);
                 case ErrorCodes.INVALID_EMAIL: return BadRequest(res);
                 case ErrorCodes.MISSING_REQUIRED_INFORMATION: return BadRequest(res);
                 case ErrorCodes.INVALID_PERSON_ID: return BadRequest(res);
@@ -44,6 +44,16 @@ namespace API.Controllers
 
             _logger.LogError("Responses with unknown ErrorCode returned", res);
             return BadRequest(500);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<GuestDTO>> Get(int guestId)
+        {
+            var response = await _guestManager.GetGuest(guestId);
+
+            if (response.Success) return Created("", response.Data);
+
+            return NotFound(response);
         }
     }
 }
