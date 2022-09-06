@@ -1,7 +1,7 @@
 using Domain.Enums;
 using Entities = Domain.Entities;
 
-namespace Application.Guest.DTO
+namespace Application.DTO.Guest
 {
     public class GuestDTO
     {

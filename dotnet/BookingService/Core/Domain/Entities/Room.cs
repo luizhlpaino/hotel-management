@@ -25,5 +25,10 @@ namespace Domain.Entities
                 return (this.InMaintenance || this.HasGuest) ? false : true;
             }
         }
+
+        public void ValidateState()
+        {
+
+        }
     }
 }

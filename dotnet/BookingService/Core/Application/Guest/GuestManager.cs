@@ -1,11 +1,11 @@
-using Application.Guest.DTO;
-using Application.Guest.Requests;
-using Application.Ports;
+using Application.DTO.Guest;
+using Application.Requests.Guest;
+using Application.Responses.Guest;
+using Application.Ports.Guest;
 using Application.Responses;
 using Domain.Exceptions;
-using Domain.Ports;
 
-namespace Application
+namespace Application.Guest
 {
     public class GuestManager : IGuestManager
     {
@@ -21,7 +21,10 @@ namespace Application
             {
                 var guest = GuestDTO.MapToEntity(request.Data);
 
-                await guest.Save(_guestRepository);
+                guest.ValidateState();
+
+                if (guest.Id == 0)
+                    guest.Id = await _guestRepository.Create(guest);
 
                 request.Data.Id = guest.Id;
 

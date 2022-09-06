@@ -8,6 +8,7 @@ namespace Application.Responses
         MISSING_REQUIRED_INFORMATION = 4,
         INVALID_EMAIL = 5,
         GUEST_NOT_FOUND = 6,
+        ROOM_NOT_FOUND = 7,
     }
 
     public abstract class Response

@@ -1,6 +1,6 @@
-using Application.Guest.DTO;
+using Application.DTO.Guest;
 
-namespace Application.Responses
+namespace Application.Responses.Guest
 {
     public class GuestResponse : Response
     {

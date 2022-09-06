@@ -1,6 +1,6 @@
-using Application.Guest.DTO;
+using Application.DTO.Guest;
 
-namespace Application.Guest.Requests
+namespace Application.Requests.Guest
 {
     public class CreateGuestRequest
     {

@@ -1,6 +1,6 @@
-using Application.Guest.DTO;
-using Application.Guest.Requests;
-using Application.Ports;
+using Application.DTO.Guest;
+using Application.Ports.Guest;
+using Application.Requests.Guest;
 using Application.Responses;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,7 +15,8 @@ namespace API.Controllers
 
         public GuestController(
             ILogger<GuestController> logger,
-            IGuestManager guestManager)
+            IGuestManager guestManager
+        )
         {
             _logger = logger;
             _guestManager = guestManager;

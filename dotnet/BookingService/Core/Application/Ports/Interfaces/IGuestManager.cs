@@ -1,7 +1,7 @@
-using Application.Guest.Requests;
-using Application.Responses;
+using Application.Requests.Guest;
+using Application.Responses.Guest;
 
-namespace Application.Ports
+namespace Application.Ports.Guest
 {
     public interface IGuestManager
     {
