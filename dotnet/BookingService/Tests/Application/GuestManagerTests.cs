@@ -6,7 +6,7 @@ using Application.Responses;
 using Entities = Domain.Entities;
 using Moq;
 
-public class Tests
+public class GuestManagerTests
 {
     GuestManager guestManager;
     [SetUp]
@@ -32,7 +32,8 @@ public class Tests
         };
 
         var fakeRepo = new Mock<Ports.IGuestRepository>();
-        fakeRepo.Setup(x => x.Create(It.IsAny<Entities.Guest>())).Returns(Task.FromResult(expectedId));
+        fakeRepo.Setup(x => x.Create(It.IsAny<Entities.Guest>()))
+            .Returns(Task.FromResult(expectedId));
         guestManager = new GuestManager(fakeRepo.Object);
 
         var response = await guestManager.CreateGuest(request);
