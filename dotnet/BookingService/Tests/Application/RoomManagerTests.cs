@@ -4,6 +4,7 @@ using Ports = Application.Ports.Room;
 using DTO = Application.DTO.Room;
 using Entities = Domain.Entities;
 using Moq;
+using Domain.Enums;
 
 public class RoomManagerTests
 {
@@ -19,7 +20,8 @@ public class RoomManagerTests
             Name = "404",
             Level = 1,
             InMaintenance = false,
-            HasGuest = false,
+            Currency = AcceptedCurrencies.Dollar,
+            Price = 250,
         };
 
         int expectedId = 111;
