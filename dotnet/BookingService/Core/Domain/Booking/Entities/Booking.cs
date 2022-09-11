@@ -1,4 +1,5 @@
 using Domain.Enums;
+using Domain.Exceptions;
 using Action = Domain.Enums.Action;
 
 namespace Domain.Entities
@@ -30,6 +31,37 @@ namespace Domain.Entities
                 (Status.Canceled, Action.Reopen) => Status.Created,
                 _ => this.Status
             };
+        }
+
+        public bool IsValid()
+        {
+            try
+            {
+                this.ValidateState();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public void ValidateState()
+        {
+            if (this.PlacedAt == default(DateTime))
+                throw new PlacedAtIsRequiredException();
+
+            if (this.StartDate == default(DateTime))
+                throw new StartDateIsRequiredException();
+
+            if (this.EndDate == default(DateTime))
+                throw new EndDateIsRequiredException();
+
+            if (string.IsNullOrEmpty(Convert.ToString(this.Guest)))
+                throw new GuestIsRequiredException();
+
+            if (string.IsNullOrEmpty(Convert.ToString(this.Room)))
+                throw new RoomIsRequiredException();
         }
     }
 }

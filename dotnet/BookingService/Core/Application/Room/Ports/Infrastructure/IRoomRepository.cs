@@ -4,7 +4,7 @@ namespace Application.Ports.Room
 {
     public interface IRoomRepository
     {
-        Task<Entities.Room> Get(int Id);
+        Task<Entities.Room> Get(int id);
         Task<int> Create(Entities.Room room);
     }
 }

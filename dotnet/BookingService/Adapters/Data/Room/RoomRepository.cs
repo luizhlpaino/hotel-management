@@ -18,9 +18,9 @@ namespace Data.Room
             return room.Id;
         }
 
-        public Task<Domain.Entities.Room> Get(int Id)
+        public Task<Domain.Entities.Room> Get(int roomId)
         {
-            return _hotelDbContext.Rooms.Where(r => r.Id == Id).FirstOrDefaultAsync();
+            return _hotelDbContext.Rooms.Where(r => r.Id == roomId).FirstOrDefaultAsync();
         }
     }
 }
