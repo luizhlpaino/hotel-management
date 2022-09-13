@@ -39,7 +39,7 @@ namespace Application.Guest
                 return new GuestResponse
                 {
                     Success = false,
-                    ErrorCode = ErrorCodes.INVALID_PERSON_ID,
+                    ErrorCode = ErrorCodes.GUEST_INVALID_PERSON_ID,
                     Message = "The ID of the guest is invalid."
                 };
             }
@@ -48,7 +48,7 @@ namespace Application.Guest
                 return new GuestResponse
                 {
                     Success = false,
-                    ErrorCode = ErrorCodes.MISSING_REQUIRED_INFORMATION,
+                    ErrorCode = ErrorCodes.GUEST_MISSING_REQUIRED_INFORMATION,
                     Message = "Missing required information for the guest."
                 };
             }
@@ -57,7 +57,7 @@ namespace Application.Guest
                 return new GuestResponse
                 {
                     Success = false,
-                    ErrorCode = ErrorCodes.INVALID_EMAIL,
+                    ErrorCode = ErrorCodes.GUEST_INVALID_EMAIL,
                     Message = "The email is invalid."
                 };
             }
@@ -66,7 +66,7 @@ namespace Application.Guest
                 return new GuestResponse
                 {
                     Success = false,
-                    ErrorCode = ErrorCodes.COULD_NOT_STORE_DATA,
+                    ErrorCode = ErrorCodes.GUEST_COULD_NOT_STORE_DATA,
                     Message = "There was an error creating the guest.",
                 };
             }

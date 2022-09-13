@@ -36,9 +36,9 @@ namespace API.Controllers
 
             switch (response.ErrorCode)
             {
-                case ErrorCodes.NOT_FOUND: return NotFound(response);
-                case ErrorCodes.MISSING_REQUIRED_INFORMATION: return BadRequest(response);
-                case ErrorCodes.COULD_NOT_STORE_DATA: return BadRequest(response);
+                case ErrorCodes.ROOM_NOT_FOUND: return NotFound(response);
+                case ErrorCodes.ROOM_MISSING_REQUIRED_INFORMATION: return BadRequest(response);
+                case ErrorCodes.ROOM_COULD_NOT_STORE_DATA: return BadRequest(response);
             }
 
             _logger.LogError("Responses with unknown ErrorCode returned", response);

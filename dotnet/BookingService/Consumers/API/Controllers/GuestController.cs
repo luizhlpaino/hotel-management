@@ -36,11 +36,11 @@ namespace API.Controllers
 
             switch (res.ErrorCode)
             {
-                case ErrorCodes.NOT_FOUND: return NotFound(res);
-                case ErrorCodes.INVALID_EMAIL: return BadRequest(res);
-                case ErrorCodes.MISSING_REQUIRED_INFORMATION: return BadRequest(res);
-                case ErrorCodes.INVALID_PERSON_ID: return BadRequest(res);
-                case ErrorCodes.COULD_NOT_STORE_DATA: return BadRequest(res);
+                case ErrorCodes.GUEST_NOT_FOUND: return NotFound(res);
+                case ErrorCodes.GUEST_INVALID_EMAIL: return BadRequest(res);
+                case ErrorCodes.GUEST_MISSING_REQUIRED_INFORMATION: return BadRequest(res);
+                case ErrorCodes.GUEST_INVALID_PERSON_ID: return BadRequest(res);
+                case ErrorCodes.GUEST_COULD_NOT_STORE_DATA: return BadRequest(res);
             }
 
             _logger.LogError("Responses with unknown ErrorCode returned", res);

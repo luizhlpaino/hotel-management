@@ -71,7 +71,7 @@ public class GuestManagerTests
         var response = await guestManager.CreateGuest(request);
         Assert.IsNotNull(response);
         Assert.False(response.Success);
-        Assert.AreEqual(response.ErrorCode, ErrorCodes.INVALID_PERSON_ID);
+        Assert.AreEqual(response.ErrorCode, ErrorCodes.GUEST_INVALID_PERSON_ID);
     }
 
     [TestCase("", "Surname", "new@email.com")]
@@ -103,7 +103,7 @@ public class GuestManagerTests
         var response = await guestManager.CreateGuest(request);
         Assert.IsNotNull(response);
         Assert.False(response.Success);
-        Assert.AreEqual(response.ErrorCode, ErrorCodes.MISSING_REQUIRED_INFORMATION);
+        Assert.AreEqual(response.ErrorCode, ErrorCodes.GUEST_MISSING_REQUIRED_INFORMATION);
     }
 
     [TestCase("email.com")]
@@ -131,7 +131,7 @@ public class GuestManagerTests
         var response = await guestManager.CreateGuest(request);
         Assert.IsNotNull(response);
         Assert.False(response.Success);
-        Assert.AreEqual(ErrorCodes.INVALID_EMAIL, response.ErrorCode);
+        Assert.AreEqual(ErrorCodes.GUEST_INVALID_EMAIL, response.ErrorCode);
     }
 
     [Test]

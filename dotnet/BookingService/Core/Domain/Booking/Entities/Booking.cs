@@ -9,6 +9,7 @@ namespace Domain.Entities
         public Booking()
         {
             this.Status = Status.Created;
+            this.PlacedAt = DateTime.UtcNow;
         }
 
         public int Id { get; set; }
@@ -62,6 +63,11 @@ namespace Domain.Entities
 
             if (string.IsNullOrEmpty(Convert.ToString(this.Room)))
                 throw new RoomIsRequiredException();
+
+            if (!this.Room.CanBeBooked)
+                throw new RoomCantBeBookedException();
+
+            this.Guest.IsValid();
         }
     }
 }

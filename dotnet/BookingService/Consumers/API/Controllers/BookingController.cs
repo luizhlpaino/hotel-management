@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace API.Controllers
 {
     [ApiController]
+    [Route("[controller]")]
     public class BookingController : ControllerBase
     {
         private readonly ILogger<BookingController> _logger;
@@ -35,13 +36,23 @@ namespace API.Controllers
 
             switch (response.ErrorCode)
             {
-                case ErrorCodes.NOT_FOUND: return NotFound(response);
-                case ErrorCodes.MISSING_REQUIRED_INFORMATION: return BadRequest(response);
-                case ErrorCodes.COULD_NOT_STORE_DATA: return BadRequest(response);
+                case ErrorCodes.BOOKING_NOT_FOUND: return NotFound(response);
+                case ErrorCodes.BOOKING_MISSING_REQUIRED_INFORMATION: return BadRequest(response);
+                case ErrorCodes.BOOKING_COULD_NOT_STORE_DATA: return BadRequest(response);
             }
 
             _logger.LogError("Responses with unknown ErrorCode returned", response.ErrorCode);
             return BadRequest(500);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<BookingDTO>> Get(int bookingId)
+        {
+            var response = await _bookingManager.GetBooking(bookingId);
+
+            if (response.Success) return Created("", response.Data);
+
+            return NotFound(response);
         }
     }
 }

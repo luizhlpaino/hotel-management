@@ -25,6 +25,7 @@ namespace Application.DTO.Booking
             return new Entities.Booking
             {
                 Id = bookingDTO.Id,
+                PlacedAt = bookingDTO.PlacedAt,
                 StartDate = bookingDTO.StartDate,
                 EndDate = bookingDTO.EndDate,
                 Guest = new Entities.Guest { Id = bookingDTO.GuestId },

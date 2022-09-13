@@ -38,7 +38,7 @@ namespace Application.Room
                 return new RoomResponse
                 {
                     Success = false,
-                    ErrorCode = ErrorCodes.COULD_NOT_STORE_DATA,
+                    ErrorCode = ErrorCodes.ROOM_COULD_NOT_STORE_DATA,
                     Message = "There was an error creating the room."
                 };
             }
