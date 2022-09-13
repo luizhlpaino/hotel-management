@@ -43,7 +43,7 @@ namespace Application.DTO.Booking
                 EndDate = booking.EndDate,
                 RoomId = booking.Room.Id,
                 GuestId = booking.Guest.Id,
-                Status = booking.CurrentStatus,
+                Status = booking.Status,
             };
         }
     }

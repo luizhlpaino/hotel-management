@@ -24,7 +24,7 @@ namespace Domain.Entities
 
                 return this.Bookings.Where(
                     b => b.Room.Id == this.Id &&
-                    notAvaibleStatuses.Contains(b.CurrentStatus)
+                    notAvaibleStatuses.Contains(b.Status)
                 ).Count() > 0;
             }
         }

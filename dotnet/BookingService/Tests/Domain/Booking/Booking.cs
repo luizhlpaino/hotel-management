@@ -16,7 +16,7 @@ namespace DomainTests.Bookings
         public void Should_Always_Start_With_Create_Status()
         {
             var booking = new Booking();
-            Assert.That(booking.CurrentStatus, Is.EqualTo(Status.Created));
+            Assert.That(booking.Status, Is.EqualTo(Status.Created));
         }
 
         [Test]
@@ -24,7 +24,7 @@ namespace DomainTests.Bookings
         {
             var booking = new Booking();
             booking.ChangeState(Action.Pay);
-            Assert.That(booking.CurrentStatus, Is.EqualTo(Status.Paid));
+            Assert.That(booking.Status, Is.EqualTo(Status.Paid));
         }
 
         [Test]
@@ -33,7 +33,7 @@ namespace DomainTests.Bookings
             var booking = new Booking();
             booking.ChangeState(Action.Pay);
             booking.ChangeState(Action.Finish);
-            Assert.That(booking.CurrentStatus, Is.EqualTo(Status.Finished));
+            Assert.That(booking.Status, Is.EqualTo(Status.Finished));
         }
 
         [Test]
@@ -41,7 +41,7 @@ namespace DomainTests.Bookings
         {
             var booking = new Booking();
             booking.ChangeState(Action.Cancel);
-            Assert.That(booking.CurrentStatus, Is.EqualTo(Status.Canceled));
+            Assert.That(booking.Status, Is.EqualTo(Status.Canceled));
         }
 
         [Test]
@@ -50,7 +50,7 @@ namespace DomainTests.Bookings
             var booking = new Booking();
             booking.ChangeState(Action.Cancel);
             booking.ChangeState(Action.Reopen);
-            Assert.That(booking.CurrentStatus, Is.EqualTo(Status.Created));
+            Assert.That(booking.Status, Is.EqualTo(Status.Created));
         }
 
         [Test]
@@ -59,7 +59,7 @@ namespace DomainTests.Bookings
             var booking = new Booking();
             booking.ChangeState(Action.Pay);
             booking.ChangeState(Action.Refound);
-            Assert.That(booking.CurrentStatus, Is.EqualTo(Status.Refounded));
+            Assert.That(booking.Status, Is.EqualTo(Status.Refounded));
         }
     }
 }
